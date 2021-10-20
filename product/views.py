@@ -85,7 +85,7 @@ class SearchViewSet(viewsets.ViewSet, generics.ListAPIView):
         products = Product.objects.filter(active=True)
         keyword = self.request.query_params.get('keyword')
         if keyword is not None:
-            products = products.filter(name__icontains=keyword)
+            products = products.filter(name__icontains=keyword).filter(tag__name__icontains=keyword)
         product_id = self.request.query_params.get('id')
         if id is not None:
             products = products.filter(category_id=product_id)

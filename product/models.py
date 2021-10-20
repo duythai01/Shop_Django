@@ -14,7 +14,7 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=200, null=False)
     price = models.IntegerField(default='')
-    image_link = models.CharField(max_length=200, default='')
+    image_link = models.ImageField(upload_to='static/Product_image/%y/%m/%d', default=None)
     description = models.TextField(null=True, blank=True)
     active = models.BooleanField(default=True)
     created_date = models.DateTimeField(auto_now_add=True)
