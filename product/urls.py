@@ -9,8 +9,6 @@ router.register("products", views.ProductViewSet, 'product')
 router.register("products", views.ProductDetailViewSet, 'tag')
 router.register("search", views.SearchViewSet, 'search')
 
-
-
 urlpatterns = [
     path('', include(router.urls)),
 

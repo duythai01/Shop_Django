@@ -15,12 +15,6 @@ class ProductSerializer(ModelSerializer):
         fields = ['id', 'name', 'price', 'image_link', 'description', 'created_date', 'category']
 
 
-class VariationSerializer(ModelSerializer):
-    class Meta:
-        model = Variation
-        fields = '__all__'
-
-
 class TagSerializer(ModelSerializer):
     class Meta:
         model = Tag

@@ -18,12 +18,12 @@ class Product(models.Model):
     description = models.TextField(null=True, blank=True)
     active = models.BooleanField(default=True)
     created_date = models.DateTimeField(auto_now_add=True)
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name='products', null=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     tags = models.ManyToManyField('Tag', related_name='products', blank=True, null=True)
 
 
 class Variation(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, related_name='variations')
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     price = models.IntegerField(default='')
     sale_price = models.IntegerField(default=0)
     inventory = models.IntegerField(default=0)
