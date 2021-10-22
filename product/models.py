@@ -21,6 +21,9 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     tags = models.ManyToManyField('Tag', related_name='products', blank=True, null=True)
 
+    def __str__(self):
+        return str(self.name) + str(self.price)
+
 
 class Variation(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
